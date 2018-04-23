@@ -3,12 +3,12 @@
 <head>
     <title>Bulk User Update Utility</title>
     <!--  (c) 2016 CA Technologies.  All Rights Reserved. -->
-    <!--  Build Date: Mon Mar 06 2017 15:23:12 GMT-0700 (MST) -->
+    <!--  Build Date: Mon Apr 23 2018 14:52:27 GMT-0600 (MDT) -->
     
     <script type="text/javascript">
-        var APP_BUILD_DATE = "Mon Mar 06 2017 15:23:12 GMT-0700 (MST)";
-        var BUILDER = "kcorkan";
-        var CHECKSUM = 295921015242;
+        var APP_BUILD_DATE = "Mon Apr 23 2018 14:52:27 GMT-0600 (MDT)";
+        var BUILDER = "morky01";
+        var CHECKSUM = 294365018990;
     </script>
     
     <script type="text/javascript" src="/apps/2.1/sdk.js"></script>
@@ -159,6 +159,7 @@ Ext.define('CA.technicalservices.userutilities.bulkmenu.AssignPermissions', {
         }
     }
 });
+
 Ext.define('CA.technicalservices.userutilities.bulkmenu.RemovePermissions', {
     alias: 'widget.removepermissionsbulkmenuitem',
     extend: 'Rally.ui.menu.bulk.MenuItem',
@@ -280,6 +281,7 @@ Ext.define('CA.technicalservices.userutilities.bulkmenu.RemovePermissions', {
         }
     }
 });
+
 Ext.define('CA.technicalservices.userutilities.bulkmenu.TeamMembership', {
     alias: 'widget.teammembershipbulkmenuitem',
     extend: 'Rally.ui.menu.bulk.MenuItem',
@@ -400,6 +402,7 @@ Ext.define('CA.technicalservices.userutilities.bulkmenu.TeamMembership', {
         }
     }
 });
+
 Ext.define('CA.technicalservices.userutilities.recordmenu.ViewPermissions', {
     extend: 'Rally.ui.menu.item.RecordMenuItem',
     alias: 'widget.viewpermissionsrecordmenuitem',
@@ -3047,6 +3050,7 @@ Ext.define('CA.technicalservices.userutilities.ViewPermissionsPanel',{
 Ext.define("bulk-user-update-app", {
     extend: 'Rally.app.App',
     componentCls: 'app',
+    projectScopeable: false,
 
     layout: 'border',
 
@@ -3263,19 +3267,6 @@ Ext.define("bulk-user-update-app", {
     },
     showErrorNotification: function(msg){
         Rally.ui.notify.Notifier.showError({message: msg });
-    },
-    getOptions: function() {
-        return [
-            {
-                text: 'About...',
-                handler: this._launchInfo,
-                scope: this
-            }
-        ];
-    },
-    _launchInfo: function() {
-        if ( this.about_dialog ) { this.about_dialog.destroy(); }
-        this.about_dialog = Ext.create('Rally.technicalservices.InfoLink',{});
     },
     isExternal: function(){
         return typeof(this.getAppId()) == 'undefined';

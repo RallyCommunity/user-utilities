@@ -1,6 +1,7 @@
 Ext.define("bulk-user-update-app", {
     extend: 'Rally.app.App',
     componentCls: 'app',
+    projectScopeable: false,
 
     layout: 'border',
 
@@ -217,19 +218,6 @@ Ext.define("bulk-user-update-app", {
     },
     showErrorNotification: function(msg){
         Rally.ui.notify.Notifier.showError({message: msg });
-    },
-    getOptions: function() {
-        return [
-            {
-                text: 'About...',
-                handler: this._launchInfo,
-                scope: this
-            }
-        ];
-    },
-    _launchInfo: function() {
-        if ( this.about_dialog ) { this.about_dialog.destroy(); }
-        this.about_dialog = Ext.create('Rally.technicalservices.InfoLink',{});
     },
     isExternal: function(){
         return typeof(this.getAppId()) == 'undefined';
