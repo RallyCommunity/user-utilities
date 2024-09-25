@@ -3,12 +3,12 @@
 <head>
     <title>Bulk User Update Utility</title>
     <!--  (c) 2016 CA Technologies.  All Rights Reserved. -->
-    <!--  Build Date: Mon Apr 23 2018 14:52:27 GMT-0600 (MDT) -->
+    <!--  Build Date: Wed Sep 25 2024 09:21:51 GMT-0600 (Mountain Daylight Time) -->
     
     <script type="text/javascript">
-        var APP_BUILD_DATE = "Mon Apr 23 2018 14:52:27 GMT-0600 (MDT)";
-        var BUILDER = "morky01";
-        var CHECKSUM = 294365018990;
+        var APP_BUILD_DATE = "Wed Sep 25 2024 09:21:51 GMT-0600 (Mountain Daylight Time)";
+        var BUILDER = "kc683795";
+        var CHECKSUM = 296129834205;
     </script>
     
     <script type="text/javascript" src="/apps/2.1/sdk.js"></script>
@@ -2680,6 +2680,13 @@ Ext.override(Rally.ui.inlinefilter.InlineFilterButton, {
         }
     },
 });
+
+Ext.override(Rally.ui.detail.DetailHelper, {
+    hasEDP: function(record) {
+        return record.isUserStory() || record.isDefect() || record.isTask() || record.isPortfolioItem() || record.isMilestone() || record.isUser();
+    }
+});
+
 
 Ext.define('CA.technicalservices.userutilities.ProjectGrid',{
     extend: 'Ext.tree.Panel',
