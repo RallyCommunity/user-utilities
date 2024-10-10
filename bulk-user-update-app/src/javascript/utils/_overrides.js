@@ -288,3 +288,10 @@ Ext.override(Rally.ui.inlinefilter.InlineFilterButton, {
         }
     },
 });
+
+Ext.override(Rally.ui.detail.DetailHelper, {
+    hasEDP: function(record) {
+        return record.isUserStory() || record.isDefect() || record.isTask() || record.isPortfolioItem() || record.isMilestone() || record.isUser();
+    }
+});
+
